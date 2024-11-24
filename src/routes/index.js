@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import Guide from '../Pages/Guide';
+import DataEntry from '../Pages/DataEntry';
 
 const AppRoutes = ({ loggedInUser, handleLogout, handleLogin, handleRegister, isRegistered, setIsRegistered, username, setUsername, password, setPassword }) => {
   return (
@@ -39,7 +40,17 @@ const AppRoutes = ({ loggedInUser, handleLogout, handleLogin, handleRegister, is
           )
         }
       />
-      <Route path="/guide" element={<Guide loggedInUser={loggedInUser} handleLogout={handleLogout} />} />
+      <Route
+      path="/guide"
+      element={
+        loggedInUser ? (
+          <Guide loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        ) : (
+          <Navigate to="/" />
+        )
+      }
+    />
+    <Route path="/data-entry" element={loggedInUser ? <DataEntry loggedInUser={loggedInUser} handleLogout={handleLogout} /> : <Navigate to="/" />} />
     </Routes>
   );
 };

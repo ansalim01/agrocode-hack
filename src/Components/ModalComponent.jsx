@@ -5,7 +5,7 @@ import locale from 'antd/es/date-picker/locale/ru_RU';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 
-const ModalComponent = ({ handleCancel, onFinish, isModalVisible }) => {
+const ModalComponent = ({ handleCancel, onFinish, isModalVisible,form  }) => {
     return (
         <div>
             <Modal
@@ -15,6 +15,7 @@ const ModalComponent = ({ handleCancel, onFinish, isModalVisible }) => {
                 footer={null}
             >
                 <Form
+                 form={form}
                     layout="vertical"
                     name="addElementForm"
                     onFinish={onFinish}

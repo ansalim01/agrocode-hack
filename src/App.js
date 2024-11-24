@@ -42,6 +42,7 @@ const App = () => {
   };
 
   return (
+    // basename="/agrocode-hack"
     <Router basename="/agrocode-hack">
       <AppRoutes
         loggedInUser={loggedInUser}
