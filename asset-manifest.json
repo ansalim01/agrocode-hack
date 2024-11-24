@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/agrocode-hack/static/css/main.96e63cd8.css",
-    "main.js": "/agrocode-hack/static/js/main.827d598b.js",
+    "main.js": "/agrocode-hack/static/js/main.bdc7f0ba.js",
     "index.html": "/agrocode-hack/index.html",
     "main.96e63cd8.css.map": "/agrocode-hack/static/css/main.96e63cd8.css.map",
-    "main.827d598b.js.map": "/agrocode-hack/static/js/main.827d598b.js.map"
+    "main.bdc7f0ba.js.map": "/agrocode-hack/static/js/main.bdc7f0ba.js.map"
   },
   "entrypoints": [
     "static/css/main.96e63cd8.css",
-    "static/js/main.827d598b.js"
+    "static/js/main.bdc7f0ba.js"
   ]
 }
