@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 import 'antd/dist/reset.css';
 import ModalComponent from '../Components/ModalComponent';
 import FishList from '../Components/FishList';
-import { Button, Card, Typography, Menu, Form, Dropdown } from 'antd';
+import { Button, Typography, Form } from 'antd';
 import { products } from '../constants';
 import dayjs from 'dayjs';
-import { FilterOutlined, DownOutlined, UpOutlined, MenuOutlined } from '@ant-design/icons';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { FilterOutlined, DownOutlined, UpOutlined } from '@ant-design/icons';
 import FilterComponent from '../Components/FilterComponent';
+import MainMenu from '../Components/MainMenu';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 function Home({ loggedInUser, handleLogout }) {
     const [sortedProducts, setSortedProducts] = useState(products);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isFilterVisible, setIsFilterVisible] = useState(false);
-    const [form] = Form.useForm();
     const [selectedSection, setSelectedSection] = useState('Племенное ядро'); // Default section
-    const navigate = useNavigate();
+    const [form] = Form.useForm();
 
     const showModal = () => {
         setIsModalVisible(true);
@@ -51,68 +50,10 @@ function Home({ loggedInUser, handleLogout }) {
         setIsFilterVisible(!isFilterVisible);
     };
 
-    const handleMenuClick = ({ key }) => {
-        let sectionName = 'Племенное ядро';
-        switch (key) {
-            case '2-1':
-                sectionName = 'Племенное ядро';
-                break;
-            case '2-2':
-                sectionName = 'Резерв';
-                break;
-            case '2-3':
-                sectionName = 'Товарное';
-                break;
-            default:
-                sectionName = 'Племенное ядро';
-        }
-        setSelectedSection(sectionName);
-        navigate('/home'); // Navigate to the corresponding section
-    };
-
-    const menuItems = [
-        {
-            key: '2',
-            label: 'Маточное стадо',
-            children: [
-                {
-                    key: '2-1',
-                    label: <div onClick={() => handleMenuClick({ key: '2-1' })}>Племенное ядро</div>,
-                },
-                {
-                    key: '2-2',
-                    label: <div onClick={() => handleMenuClick({ key: '2-2' })}>Резерв</div>,
-                },
-                {
-                    key: '2-3',
-                    label: <div onClick={() => handleMenuClick({ key: '2-3' })}>Товарное</div>,
-                },
-            ],
-        },
-        {
-            key: '1',
-            label: <Link to="/guide">Справочник</Link>,
-        },
-        {
-            key: '3',
-            label: <Link to="/data-entry">Ввод данных</Link>,
-        },
-    ];
-
-    const menu = (
-        <Menu items={menuItems} />
-    );
-
     return (
         <div className="wrapper">
             <div className="header" id='header'>
-                <div className="">
-                    <Dropdown overlay={menu} trigger={['click']}>
-                        <Button type="text" icon={<MenuOutlined />}>
-                            Меню
-                        </Button>
-                    </Dropdown>
-                </div>
+                <MainMenu setSelectedSection={setSelectedSection} />
                 <div className="header__right">
                     <Title level={3}>{loggedInUser.username}</Title>
                     <Button type="primary" onClick={handleLogout}>

@@ -9,13 +9,14 @@ import { FilterOutlined, DownOutlined, UpOutlined, MenuOutlined, SearchOutlined 
 import FilterComponent from '../Components/FilterComponent';
 import { Link, Route, Routes } from 'react-router-dom';
 import * as XLSX from 'xlsx';
+import MainMenu from '../Components/MainMenu';
 const { Title } = Typography;
 const { Panel } = Collapse;
 
 
 function DataEntry({ loggedInUser, handleLogout }) {
     const [uploadedData, setUploadedData] = useState([]);
-
+const [selectedSection, setSelectedSection] = useState('Справочник пород радужной форели'); // Добавляем выбранный раздел
     const menuItems = [
         {
             key: '2',
@@ -57,13 +58,8 @@ function DataEntry({ loggedInUser, handleLogout }) {
     return (
         <div className="wrapper">
             <div className="header" id='header'>
-                <div className="">
-                    <Dropdown overlay={menu} trigger={['click']}>
-                        <Button type="text" icon={<MenuOutlined />}>
-                            Меню
-                        </Button>
-                    </Dropdown>
-                </div>
+            
+            <MainMenu setSelectedSection={setSelectedSection} />
                 <div className="header__right">
                     <Title level={3}> {loggedInUser.username}</Title>
                     <Button type="primary" onClick={handleLogout}>
