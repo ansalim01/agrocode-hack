@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/agrocode-hack/static/css/main.96e63cd8.css",
+    "main.js": "/agrocode-hack/static/js/main.827d598b.js",
+    "index.html": "/agrocode-hack/index.html",
+    "main.96e63cd8.css.map": "/agrocode-hack/static/css/main.96e63cd8.css.map",
+    "main.827d598b.js.map": "/agrocode-hack/static/js/main.827d598b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96e63cd8.css",
+    "static/js/main.827d598b.js"
+  ]
+}
